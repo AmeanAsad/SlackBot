@@ -195,39 +195,6 @@ class bot(object):
                
             post_message(text,channel)
     
-    def get_weather(self):
-        morning_greetings = ['Guten Morgen',
-                            'Bonjour folks',
-                            'Buenos Días',
-                            'Buongiorno',
-                            'Subaha Acchā',
-                            'Shuprobhat',
-                            "Ahlan ya gama3a",
-                            "Sabah el Fol"]
-
-        king_tut_calls = [", its ya boi", ", its yo pharaoh here", 
-                          ", MC tut here and"," , say what, its ya boi kingtut", 
-                          " , its yo king with all the bling" ]
-        
-        weather = Weather(unit=Unit.CELSIUS)
-        today =  datetime.today().weekday()
-
-        weekdays = {0: "Monday", 1 : "Tuesday", 2 : "Wednesday", 3 : "Thursday",
-                    4:"Friday", 5 : "Saturday", 6 : "Sunday"}
-        lookup = weather.lookup_by_latlng(44.2312, 76.4860)
-        condition = lookup.forecast
-        greeting = random.choice(morning_greetings)
-        call_out = random.choice(king_tut_calls)
-        day = ", it is " + str(weekdays[today]) + " today "
-        weather_start = "and the weather is "
-        high_call = " with a temperature high of "
-        low_call = " with a temperature low of "
-        text = (greeting + call_out +  day + weather_start + condition[0].text
-                + high_call + condition[0].high + low_call
-                + condition[0].low)
-        
-        
-        return text
         
   
 get_event() 
